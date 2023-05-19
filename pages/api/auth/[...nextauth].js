@@ -1,9 +1,10 @@
 import clientPromise from '@/lib/mongodb'
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
-import NextAuth from 'next-auth'
+import NextAuth, { getServerSession } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
 const adminEmails = ['philipcheang7@gmail.com'];
+
 export const authOptions = {
   providers: [
     // OAuth authentication providers...
