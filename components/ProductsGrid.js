@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import ProductBox from "@/components/ProductBox";
 import Center from "./Center";
-import Invoice from "./Invoice";
 
 const StyledProductsGrid = styled.div`
   display: grid;
@@ -23,7 +22,7 @@ const ColumnsWrapper = styled.div`
     order:2;
   }
   @media screen and (min-width: 768px) {
-    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-columns: 1fr;
     div:nth-child(1) {
       order: 0;
     }
@@ -39,17 +38,10 @@ const Column = styled.div`
   align-items: center;
 `;
 
-const InvoiceStyles = styled.div`
-  display: flex;
-`;
-
 export default function ProductsGrid({products}) {
   return (
     <Center>
       <ColumnsWrapper>
-        <InvoiceStyles>
-          <Invoice />
-        </InvoiceStyles>
         <Column>
           <div>
             <StyledProductsGrid>

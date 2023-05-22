@@ -10,7 +10,7 @@ import Button from "@/components/Button";
 import CartIcon from "@/components/icons/CartIcon";
 import {useContext} from "react";
 import {CartContext} from "@/components/CartContext";
-
+// This is a single page of product
 const ColWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;

@@ -1,35 +1,37 @@
 import styled from "styled-components"
-import Button from "./Button";
-import CartIcon from "./icons/CartIcon";
-import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 
-const ProductWrapper = styled.div`
+
+export const ProductWrapper = styled.div`
 `;
 
-const Box = styled.div`
-  background-color: blue;
-  border-radius: 10px;
-  width: 100px;  
+const CardButton = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 `;
 
 const Card = styled.div`
   border-radius: 10px;
+  border: solid 2px #000;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: grey;
-  height: 70px;
+  justify-content: space-between;
+  height: 90px;
+  width: 120px;
+  margin: 10px 10px 10px 0px;
+  
 `;
 
 const CardImage = styled.img`
-  max-height: 100%;
+  max-height: 70%;
   max-width: 100%;
 `;
 
-const CardTitle = styled(Link)`
+const CardTitle = styled.div`
   align-items: center; 
   justify-content: center;
   font-size: .9rem;
@@ -41,42 +43,17 @@ const CardTitle = styled(Link)`
   }
 `;
 
-const ProductInfoBox = styled.div`
-`;
-
-const PriceRow = styled.div`
-`;
-
-const Price = styled.div`
-  font-size: 1.2rem;
-  font-weight: 600;
-  @media screen and (min-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
 export default function ProductBox({_id, title, description, price, images}) {
-  const {addProduct} = useContext(CartContext);
-  const url = '/product/'+_id;
+  const { addProduct } = useContext(CartContext);
+  
   return (
-    <ProductWrapper>
-      <Box href={url}>
-        <Card>
-          <CardImage src={images?.[0]} alt="" />
-        </Card>
-        <CardTitle href={url}>{title}</CardTitle>
-      </Box>
-        <ProductInfoBox>
-          <PriceRow>
-            <Price>
-              ${price}
-            </Price>
-            <Button onClick={() => addProduct(_id)} primary>
-              <CartIcon />
-              Add to Cart
-            </Button>
-          </PriceRow>   
-        </ProductInfoBox>
+      <ProductWrapper>
+        <CardButton onClick={() => addProduct(_id)}>
+          <Card className="bg-highlight p-1">
+            <CardImage src={images?.[0]} alt="" />
+            <CardTitle>{title}</CardTitle>
+          </Card>
+        </CardButton>
       </ProductWrapper>   
   );
 }
