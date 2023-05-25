@@ -95,8 +95,7 @@ export default function CartPage() {
     }
     if (window?.location.href.includes('success')) {
       setIsSuccess(true);
-      clearCart();
-      
+      clearCart();     
     }
   }, []);
   function moreOfThisProduct(id) {
@@ -137,9 +136,6 @@ export default function CartPage() {
   }
   return (
     <>
-      {/* <ProductWrapper>
-        <Nav />
-      </ProductWrapper> */}
       <Center>
         <ColumnsWrapper>
         <Nav />
